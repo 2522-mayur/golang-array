@@ -47,6 +47,48 @@ func reverseArr(arr []int)([]int,string){
 	}
 	return tempArr,""
 }
+
+func sum(arr []int)(int,int,string){
+	
+
+odd:=0	
+even:=0
+	for i:=0;i<len(arr);i++{
+		if arr[i]%2==0{
+			even++
+		}else{
+			odd++
+		}
+	}
+	return even,odd,""
+}
+
+func checkDuplicate(arr []int)(bool,string){
+	seen:=make(map[int]bool)
+	for i:=0;i<len(arr);i++{
+		if seen[arr[i]]{
+			return true,""
+		}
+		seen[arr[i]]=true
+	}
+	return false,""
+}
+func findFrequency(arr []int)(map[int]int,string){
+	freCount:=make(map[int]int)
+	for i:=0;i<len(arr);i++{
+		freCount[arr[i]]++
+	}
+	return freCount,""
+}
+
+func isPalindrome(arr []int)(bool,string){
+	for i:=0;i<len(arr)/2;i++{
+		if arr[i]!=arr[len(arr)-1-i]{
+			return false,""
+		}
+	}
+	return true,""
+}
 func main() {
 
 	//FindMinMax
@@ -71,11 +113,41 @@ func main() {
 	// }
 
 	//Reverse an Array
-	Arr:=[]int{1,2,3,4,5}
-	arr,err:=reverseArr(Arr)
-	if  err!=""{
-		fmt.Println("error")
+	Arr:=[]int{1,2,3,2,1}
+	// arr,err:=reverseArr(Arr)
+	// if  err!=""{
+	// 	fmt.Println("error")
+	// }
+	// fmt.Println(arr)
+
+	// arr,arr1,err:=sum(Arr)
+	// if  err!=""{
+	// 	fmt.Println("error")
+	// }
+	// fmt.Println(arr,arr1)
+
+	//Check for Duplicates in Array
+	// isDuplicate,err:=checkDuplicate(Arr)
+	// if err!=""{
+	// 	fmt.Println("err")
+	// }
+	// fmt.Println(isDuplicate)
+
+	//Find Frequency of Each Element
+	// frq,err:=findFrequency(Arr)
+	// if err!=""{
+	// 	fmt.Println("err")
+	// }
+	// fmt.Println(frq)
+
+
+
+	palindrome,err:=isPalindrome(Arr)
+	if err!=""{
+		fmt.Println("err")
 	}
-	fmt.Println(arr)
+	fmt.Println(palindrome)
+
+
 	
 }
